@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+		PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jk.mapper.AccountMapper">
+
+<!--List<Goods> queryaccount(HashMap<String, Object> map)
+	<resultMap id="gd" type="Goods">
+		<id column="" property=""/>
+		<result column="" property="" />
+		<result column="" property="" />
+		<result column="" property="" />
+		<result column="" property="" />
+		<collection property="">
+
+		</collection>
+	</resultMap>
+
+<select id="queryaccountcount" parameterType="map" resultType="int">
+
+</select>
+
+	<select id="queryaccount" resultType="com.jk.model.Goods" parameterType="map">
+select * from t_goods g LEFT JOIN t_member m ON g.commentId=m.memberId
+LEFT JOIN t_user u on g.userId=u.userId
+LEFT JOIN t_state s on u.stateId=s.satateId
+limit ${start},${end}
+</select>
+
+	-->
+		</mapper>

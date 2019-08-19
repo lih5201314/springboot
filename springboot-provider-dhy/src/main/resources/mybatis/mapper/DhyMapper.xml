@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jk.mapper.DhyMapper" >
+
+  <select id="queryGangwei" resultType="com.jk.model.Gangwei">
+
+    select * from t_gangwei <include refid="cha"></include>
+
+  </select>
+
+  <select id="queryZhanghao" resultType="com.jk.model.Zhanghao">
+
+    select * from t_zhanghao <include refid="cha2"></include>
+
+  </select>
+
+  <select id="getTreeAll" resultType="com.jk.model.Tree">
+      		SELECT sp.* from l_user s ,user_role ur ,l_role sr,role_permission rp,l_permission sp
+		where s.id = ur.userid
+		and ur.roleid = sr.id
+		and sr.id = rp.roleid
+		and rp.perid = sp.id
+		/*and s.id = #{id}*/ GROUP BY sp.name
+  </select>
+
+  <sql id="cha">
+
+    <where>
+    <if test="gname!= null and gname !=''">
+
+        and gname = #{gname}
+      </if>
+
+    </where>
+
+  </sql>
+
+  <sql id="cha2">
+
+    <where>
+      <if test="gname!= null and gname !=''">
+
+        and (name like ("%"#{gname}"%") or email like ("%"#{gname}"%"))
+      </if>
+
+    </where>
+
+  </sql>
+
+</mapper>
